@@ -1,0 +1,22 @@
+{
+  "manifestVersion": "3.0.0",
+  "catalogVersion": "3.0.0",
+  "engineSuiteVersion": "BIE-2.0 / VFE-2.0 / CEF-2.0 / SIE-2.0 / CDE-2.0 / EFE-2.0",
+  "assets": [
+    {
+      "assetPath": "currency_master_catalog.json",
+      "sha256": "a6dbaeaef5ea4a54521bf0bda29bd1b97ce820db06c3c7313856063cea68323c",
+      "role": "MASTER_CATALOG"
+    },
+    {
+      "assetPath": "models/bie_banknote_classifier.tflite",
+      "sha256": "6c898db6ebb1bd4b9768320094b0ae66c138363686482e7381255a283b336a52",
+      "role": "LITERT_BIE_CLASSIFIER"
+    },
+    {
+      "assetPath": "models/condition_quality_mlp.tflite",
+      "sha256": "1d6fb874154eef3b31aaf85bc105e118b1f94e77b0623a7cd5a0dbbb14fc9aa4",
+      "role": "LITERT_CEF_QUALITY"
+    }
+  ]
+}

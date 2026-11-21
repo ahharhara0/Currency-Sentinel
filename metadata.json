@@ -1,0 +1,6 @@
+{
+  "name": "Currency Sentinel",
+  "description": "100% offline bilingual forensic banknote inspection system for SAR and USD with Serial Intelligence Engine (SIE 1.0), wear-invariant multi-evidence analysis, and anomaly detection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

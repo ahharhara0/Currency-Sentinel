@@ -1,0 +1,813 @@
+{
+  "catalogVersion": "3.0.0",
+  "lastUpdated": "2026-11-20",
+  "supportedCurrencies": ["SAR", "USD"],
+  "usdSeriesYears": [
+    {"letter": "A", "seriesYear": "1996", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "B", "seriesYear": "1999", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "C", "seriesYear": "2001", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "D", "seriesYear": "2003", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "E", "seriesYear": "2004", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "F", "seriesYear": "2003A", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "G", "seriesYear": "2004A", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "H", "seriesYear": "2006", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "I", "seriesYear": "2006", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "J", "seriesYear": "2009", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "K", "seriesYear": "2006A", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "L", "seriesYear": "2009A", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "M", "seriesYear": "2013", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "N", "seriesYear": "2017", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "P", "seriesYear": "2017A", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "Q", "seriesYear": "2021", "denominations": [5, 10, 20, 50, 100]},
+    {"letter": "R", "seriesYear": "2025", "denominations": [1, 5, 10, 20, 100]}
+  ],
+  "usdFederalReserveDistricts": [
+    {"letter": "A", "number": 1, "code": "A1", "cityEn": "Boston", "cityAr": "بوسطن"},
+    {"letter": "B", "number": 2, "code": "B2", "cityEn": "New York", "cityAr": "نيويورك"},
+    {"letter": "C", "number": 3, "code": "C3", "cityEn": "Philadelphia", "cityAr": "فيلادلفيا"},
+    {"letter": "D", "number": 4, "code": "D4", "cityEn": "Cleveland", "cityAr": "كليفلاند"},
+    {"letter": "E", "number": 5, "code": "E5", "cityEn": "Richmond", "cityAr": "ريتشموند"},
+    {"letter": "F", "number": 6, "code": "F6", "cityEn": "Atlanta", "cityAr": "أتلانتا"},
+    {"letter": "G", "number": 7, "code": "G7", "cityEn": "Chicago", "cityAr": "شيكاغو"},
+    {"letter": "H", "number": 8, "code": "H8", "cityEn": "St. Louis", "cityAr": "سانت لويس"},
+    {"letter": "I", "number": 9, "code": "I9", "cityEn": "Minneapolis", "cityAr": "مينيابوليس"},
+    {"letter": "J", "number": 10, "code": "J10", "cityEn": "Kansas City", "cityAr": "كانساس سيتي"},
+    {"letter": "K", "number": 11, "code": "K11", "cityEn": "Dallas", "cityAr": "دالاس"},
+    {"letter": "L", "number": 12, "code": "L12", "cityEn": "San Francisco", "cityAr": "سان فرانسيسكو"}
+  ],
+  "denominationSerialRules": [
+    {
+      "ruleId": "USD_1_2_LEGACY",
+      "currency": "USD",
+      "denominations": [1, 2],
+      "expectedLength": 10,
+      "patternRegex": "^[A-L]\\d{8}[A-NP-Y★]$",
+      "descriptionEn": "Independent 10-character Reserve-first structure: [Bank A-L][8 Digits][Suffix/★]. Not a shortened $5-$100 rule.",
+      "descriptionAr": "بنية مستقلة من 10 خانات تبدأ بحرف البنك [A-L] ثم 8 أرقام ثم اللاحقة أو النجمة."
+    },
+    {
+      "ruleId": "USD_5_100_MODERN",
+      "currency": "USD",
+      "denominations": [5, 10, 20, 50, 100],
+      "expectedLength": 11,
+      "patternRegex": "^[A-NP-R][A-L]\\d{8}[A-NP-Y★]$",
+      "descriptionEn": "Modern 11-character structure: [Series A-R ex O,Z][Bank A-L][8 Digits][Suffix/★].",
+      "descriptionAr": "بنية حديثة من 11 خانة: [حرف السلسلة][بنك الاحتياطي][8 أرقام][اللاحقة/★]."
+    },
+    {
+      "ruleId": "SAR_DOCUMENTED_ISSUES",
+      "currency": "SAR",
+      "denominations": [1, 5, 10, 50, 100, 200, 500],
+      "expectedLength": null,
+      "patternRegex": "^[A-Z0-9/\\u0660-\\u0669]{6,14}$",
+      "descriptionEn": "Dual-serial consistency between top-right and bottom-left corners; SAMA letter meanings remain unpublished.",
+      "descriptionAr": "فحص تطابق الرقمين العلوي والسفلي وبنية الأرقام دون افتراض دلالات غير منشورة لأحرف البادئة."
+    }
+  ],
+  "signatureCombinations": [
+    {"currency": "USD", "seriesOrIssue": "2013", "officials": "Rios / Lew", "applicableDenominations": [1, 2, 5, 10, 20, 50, 100]},
+    {"currency": "USD", "seriesOrIssue": "2017", "officials": "Carranza / Mnuchin", "applicableDenominations": [1, 2, 5, 10, 20, 50, 100]},
+    {"currency": "USD", "seriesOrIssue": "2017A", "officials": "Carranza / Mnuchin (New Plates)", "applicableDenominations": [1, 2, 5, 10, 20, 50, 100]},
+    {"currency": "USD", "seriesOrIssue": "2021", "officials": "Malerba / Yellen", "applicableDenominations": [1, 5, 10, 20, 50, 100]},
+    {"currency": "USD", "seriesOrIssue": "2025", "officials": "Series 2025 BEP Schedule", "applicableDenominations": [1, 5, 10, 20, 100]},
+    {"currency": "SAR", "seriesOrIssue": "Sixth Issue (2016)", "officials": "Al-Khulaifi / Al-Jadaan", "applicableDenominations": [5, 10, 50, 100, 500]},
+    {"currency": "SAR", "seriesOrIssue": "2021 Vision 2030", "officials": "Al-Mubarak / Al-Jadaan", "applicableDenominations": [200]}
+  ],
+  "starNoteRules": [
+    {
+      "currency": "USD",
+      "symbol": "★",
+      "meaningEn": "Replaces a note found defective during BEP printing; uses ★ in final position.",
+      "meaningAr": "ورقة بديلة استُخدمت لتعويض ورقة معيبة أثناء الطباعة وتنتهي برمز النجمة ★.",
+      "positionRule": "TRAILING"
+    }
+  ],
+  "serialExceptions": [
+    {
+      "code": "USD_SERIES_I_2006",
+      "currency": "USD",
+      "summaryEn": "Letter I is valid in Series prefix for 2006 on specific denominations and as Minneapolis I9.",
+      "summaryAr": "الحرف I معتمد رسمياً في بادئة سلسلة 2006 ولبنك مينيابوليس I9."
+    },
+    {
+      "code": "USD_EXCLUDE_O_Z",
+      "currency": "USD",
+      "summaryEn": "Letters O and Z are excluded from standard BEP series/reserve/suffix positions.",
+      "summaryAr": "يُستبعد الحرفان O و Z من المواضع القياسية للبادئة والبنك واللاحقة."
+    },
+    {
+      "code": "USD_SERIES_R_2025",
+      "currency": "USD",
+      "summaryEn": "Letter R maps to Series 2025 for $1, $5, $10, $20, $100 in BEP tables.",
+      "summaryAr": "الحرف R يمثل سلسلة 2025 للفئات 1 و5 و10 و20 و100 دولار."
+    }
+  ],
+  "entries": [
+    {
+      "id": "SAR_ISSUE6_5_COTTON",
+      "currency": "SAR",
+      "denominationValue": 5,
+      "denominationLabelEn": "5 Riyals (Cotton 2016)",
+      "denominationLabelAr": "5 ريالات (قطن 2016)",
+      "familyId": "SAR_ISSUE_6_COTTON",
+      "familyNameEn": "Sixth Issue – King Salman (Cotton)",
+      "familyNameAr": "الإصدار السادس – الملك سلمان (قطن)",
+      "issueYear": "2016",
+      "designYear": "2016",
+      "printYearRange": "2016–2020",
+      "signatureYears": "Al-Khulaifi / Al-Jadaan",
+      "material": "COTTON_LINEN",
+      "widthMm": 145.0,
+      "heightMm": 66.0,
+      "dominantHueMin": 250.0,
+      "dominantHueMax": 310.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Dual matched serials (top-right & bottom-left)",
+      "sourceCitation": "SAMA Sixth Issue Guide",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official dimensions, substrate, and security profile from SAMA.",
+        "confidenceNoteAr": "أبعاد وخصائص أمنية موثقة رسمياً من البنك المركزي السعودي."
+      },
+      "changelogNote": "Dec 2016 cotton issue; separate from 2020 polymer.",
+      "securityFeatures": [
+        {"id": "wm_salman", "nameEn": "King Salman Watermark", "nameAr": "العلامة المائية للملك سلمان", "descriptionEn": "Multi-tonal portrait when backlit.", "descriptionAr": "صورة متعددة الدرجات عند الإضاءة الخلفية.", "opticalCameraInspectable": false, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "thread_win", "nameEn": "Windowed Security Thread", "nameAr": "خيط الأمان المدمج", "descriptionEn": "Metallic ribbon with micro-text.", "descriptionAr": "شريط معدني متقطع.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "intaglio", "nameEn": "Raised Intaglio & Tactile Bar", "nameAr": "الطباعة البارزة وعلامة اللمس", "descriptionEn": "Tactile relief (not measurable by RGB camera).", "descriptionAr": "طباعة بارزة تتطلب الفحص اللمسي.", "opticalCameraInspectable": false, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Window", "labelAr": "العلامة المائية", "x": 0.06, "y": 0.20, "w": 0.22, "h": 0.48, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "Security Thread", "labelAr": "خيط الأمان", "x": 0.54, "y": 0.04, "w": 0.07, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Main Portrait", "labelAr": "الصورة الرئيسية", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true},
+        {"id": "denom_tl", "category": "DENOMINATION", "labelEn": "Denomination Numeral", "labelAr": "رقم الفئة", "x": 0.06, "y": 0.06, "w": 0.16, "h": 0.16, "side": "FRONT", "required": true},
+        {"id": "micro_border", "category": "MICROPRINT", "labelEn": "Microprint Border", "labelAr": "النقوش الدقيقة", "x": 0.30, "y": 0.80, "w": 0.32, "h": 0.14, "side": "FRONT", "required": false}
+      ]
+    },
+    {
+      "id": "SAR_ISSUE6_5_POLYMER",
+      "currency": "SAR",
+      "denominationValue": 5,
+      "denominationLabelEn": "5 Riyals (Polymer 2020)",
+      "denominationLabelAr": "5 ريالات (بوليمر 2020)",
+      "familyId": "SAR_ISSUE_6_POLYMER",
+      "familyNameEn": "Sixth Issue – Polymer Edition",
+      "familyNameAr": "الإصدار السادس – فئة البوليمر",
+      "issueYear": "2020",
+      "designYear": "2020",
+      "printYearRange": "2020–Present",
+      "signatureYears": "Al-Khulaifi / Al-Jadaan",
+      "material": "POLYMER",
+      "widthMm": 145.0,
+      "heightMm": 66.0,
+      "dominantHueMin": 255.0,
+      "dominantHueMax": 315.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Polymer substrate with transparent emblem window; dual matched serials",
+      "sourceCitation": "SAMA Polymer 5 SAR Release (Sep 28, 2020)",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Polymer note with clear window replacing paper watermark.",
+        "confidenceNoteAr": "ورقة بوليمر بنافذة شفافة تميزها عن نسخة القطن 2016."
+      },
+      "changelogNote": "Polymer 5 SAR introduced Sep 28, 2020.",
+      "securityFeatures": [
+        {"id": "poly_win", "nameEn": "Transparent Polymer Window", "nameAr": "النافذة الشفافة", "descriptionEn": "Clear see-through emblem window.", "descriptionAr": "نافذة شفافة تحمل شعار الدولة.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "spark_5", "nameEn": "Color-Shifting Emblem", "nameAr": "شعار متغير اللون", "descriptionEn": "Tilt-reactive iridescent emblem.", "descriptionAr": "تغير لوني عند الإمالة.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "poly_window", "category": "WATERMARK", "labelEn": "Transparent Window", "labelAr": "النافذة الشفافة", "x": 0.08, "y": 0.18, "w": 0.22, "h": 0.54, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Main Portrait", "labelAr": "الصورة الرئيسية", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true},
+        {"id": "denom_tl", "category": "DENOMINATION", "labelEn": "Denomination Numeral", "labelAr": "رقم الفئة", "x": 0.06, "y": 0.06, "w": 0.16, "h": 0.16, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "SAR_ISSUE6_10",
+      "currency": "SAR",
+      "denominationValue": 10,
+      "denominationLabelEn": "10 Riyals",
+      "denominationLabelAr": "10 ريالات",
+      "familyId": "SAR_ISSUE_6_COTTON",
+      "familyNameEn": "Sixth Issue – King Salman",
+      "familyNameAr": "الإصدار السادس – الملك سلمان",
+      "issueYear": "2016",
+      "designYear": "2016",
+      "printYearRange": "2016–Present",
+      "signatureYears": "2016–Present",
+      "material": "COTTON_LINEN",
+      "widthMm": 150.0,
+      "heightMm": 68.0,
+      "dominantHueMin": 12.0,
+      "dominantHueMax": 42.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Dual matched serials; brown palette",
+      "sourceCitation": "SAMA Sixth Issue Guide",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official SAMA 10 SAR specifications.",
+        "confidenceNoteAr": "مواصفات رسمية لفئة 10 ريالات من البنك المركزي."
+      },
+      "changelogNote": "150 x 68 mm cotton note.",
+      "securityFeatures": [
+        {"id": "foil_10", "nameEn": "Metallic Iridescent Strip", "nameAr": "الشريط المعدني المتلألئ", "descriptionEn": "Shifting metallic strip.", "descriptionAr": "شريط متغير الانعكاس.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Zone", "labelAr": "العلامة المائية", "x": 0.06, "y": 0.20, "w": 0.22, "h": 0.48, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "Security Thread", "labelAr": "خيط الأمان", "x": 0.53, "y": 0.04, "w": 0.07, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Portrait", "labelAr": "الصورة", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "SAR_ISSUE6_50",
+      "currency": "SAR",
+      "denominationValue": 50,
+      "denominationLabelEn": "50 Riyals",
+      "denominationLabelAr": "50 ريالاً",
+      "familyId": "SAR_ISSUE_6_COTTON",
+      "familyNameEn": "Sixth Issue – King Salman",
+      "familyNameAr": "الإصدار السادس – الملك سلمان",
+      "issueYear": "2016",
+      "designYear": "2016",
+      "printYearRange": "2016–Present",
+      "signatureYears": "2016–Present",
+      "material": "COTTON_LINEN",
+      "widthMm": 155.0,
+      "heightMm": 70.0,
+      "dominantHueMin": 85.0,
+      "dominantHueMax": 155.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Dual matched serials; emerald palette",
+      "sourceCitation": "SAMA Sixth Issue Guide",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official SAMA 50 SAR specifications.",
+        "confidenceNoteAr": "مواصفات رسمية لفئة 50 ريالاً."
+      },
+      "changelogNote": "155 x 70 mm cotton note.",
+      "securityFeatures": [
+        {"id": "motion_50", "nameEn": "Dynamic MOTION Thread", "nameAr": "خيط الأمان المتحرك", "descriptionEn": "Optical motion effect on tilt.", "descriptionAr": "تأثير حركة عند الإمالة.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "ovi_50", "nameEn": "SPARK Optically Variable Ink", "nameAr": "حبر متغير اللون", "descriptionEn": "Rolling light bar shifts color.", "descriptionAr": "شريط ضوئي متغير اللون.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Zone", "labelAr": "العلامة المائية", "x": 0.06, "y": 0.20, "w": 0.22, "h": 0.48, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "3D Security Thread", "labelAr": "خيط الأمان الثلاثي الأبعاد", "x": 0.52, "y": 0.04, "w": 0.08, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Portrait", "labelAr": "الصورة", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "SAR_ISSUE6_100",
+      "currency": "SAR",
+      "denominationValue": 100,
+      "denominationLabelEn": "100 Riyals",
+      "denominationLabelAr": "100 ريال",
+      "familyId": "SAR_ISSUE_6_COTTON",
+      "familyNameEn": "Sixth Issue – King Salman",
+      "familyNameAr": "الإصدار السادس – الملك سلمان",
+      "issueYear": "2016",
+      "designYear": "2016",
+      "printYearRange": "2016–Present",
+      "signatureYears": "2016–Present",
+      "material": "COTTON_LINEN",
+      "widthMm": 160.0,
+      "heightMm": 72.0,
+      "dominantHueMin": 335.0,
+      "dominantHueMax": 20.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Dual matched serials; crimson palette",
+      "sourceCitation": "SAMA Sixth Issue Guide",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official SAMA 100 SAR specifications.",
+        "confidenceNoteAr": "مواصفات رسمية لفئة 100 ريال."
+      },
+      "changelogNote": "160 x 72 mm cotton note.",
+      "securityFeatures": [
+        {"id": "motion_100", "nameEn": "MOTION 3D Security Thread", "nameAr": "خيط أمان MOTION ثلاثي الأبعاد", "descriptionEn": "Dynamic shifting 100 & emblem.", "descriptionAr": "حركة بصرية للرقم 100 والشعار.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "spark_100", "nameEn": "SPARK Live Color-Shift", "nameAr": "عنصر SPARK متغير اللون", "descriptionEn": "Rolling bar shifts red-gold to green.", "descriptionAr": "تغير لوني ديناميكي على الشعار.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Zone", "labelAr": "العلامة المائية", "x": 0.06, "y": 0.20, "w": 0.22, "h": 0.48, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "3D Security Thread", "labelAr": "خيط الأمان الثلاثي الأبعاد", "x": 0.52, "y": 0.04, "w": 0.08, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Portrait", "labelAr": "الصورة", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "SAR_ISSUE6_200",
+      "currency": "SAR",
+      "denominationValue": 200,
+      "denominationLabelEn": "200 Riyals (Vision 2030)",
+      "denominationLabelAr": "200 ريال (رؤية 2030)",
+      "familyId": "COMMEMORATIVE",
+      "familyNameEn": "Sixth Issue – Vision 2030 Commemorative",
+      "familyNameAr": "الإصدار السادس – تذكاري رؤية 2030",
+      "issueYear": "2021",
+      "designYear": "2021",
+      "printYearRange": "2021–Present",
+      "signatureYears": "Al-Mubarak / Al-Jadaan",
+      "material": "COTTON_LINEN",
+      "widthMm": 163.0,
+      "heightMm": 73.0,
+      "dominantHueMin": 20.0,
+      "dominantHueMax": 55.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Issued Jan 4, 2021; King Abdulaziz portrait + Vision 2030",
+      "sourceCitation": "SAMA 200 Riyals Announcement (2021)",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Commemorative Vision 2030 circulation note.",
+        "confidenceNoteAr": "إصدار تداولي تذكاري لرؤية المملكة 2030."
+      },
+      "changelogNote": "Added Jan 4, 2021; 163 x 73 mm.",
+      "securityFeatures": [
+        {"id": "spark_200", "nameEn": "Vision 2030 SPARK Element", "nameAr": "عنصر SPARK لرؤية 2030", "descriptionEn": "3D color-shifting Vision 2030 logo.", "descriptionAr": "تغير لوني ديناميكي على شعار رؤية 2030.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Zone", "labelAr": "العلامة المائية", "x": 0.06, "y": 0.20, "w": 0.22, "h": 0.48, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "3D Security Thread", "labelAr": "خيط الأمان", "x": 0.52, "y": 0.04, "w": 0.08, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "King Abdulaziz Portrait", "labelAr": "صورة الملك عبدالعزيز", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "SAR_ISSUE6_500",
+      "currency": "SAR",
+      "denominationValue": 500,
+      "denominationLabelEn": "500 Riyals",
+      "denominationLabelAr": "500 ريال",
+      "familyId": "SAR_ISSUE_6_COTTON",
+      "familyNameEn": "Sixth Issue – King Abdulaziz",
+      "familyNameAr": "الإصدار السادس – الملك عبدالعزيز",
+      "issueYear": "2016",
+      "designYear": "2016",
+      "printYearRange": "2016–Present",
+      "signatureYears": "2016–Present",
+      "material": "COTTON_LINEN",
+      "widthMm": 166.0,
+      "heightMm": 74.0,
+      "dominantHueMin": 195.0,
+      "dominantHueMax": 245.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Dual matched serials; cobalt-blue palette",
+      "sourceCitation": "SAMA Sixth Issue Guide",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Saudi Central Bank (SAMA)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official SAMA 500 SAR specifications.",
+        "confidenceNoteAr": "مواصفات رسمية لفئة 500 ريال."
+      },
+      "changelogNote": "166 x 74 mm largest cotton denomination.",
+      "securityFeatures": [
+        {"id": "motion_500", "nameEn": "MOTION 3D Ribbon", "nameAr": "خيط الأمان الثلاثي الأبعاد", "descriptionEn": "Wide motion strip shifting 500 & emblem.", "descriptionAr": "شريط أمان عريض يعرض حركة الرقم 500.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "spark_500", "nameEn": "SPARK Live Gold-Blue Shift", "nameAr": "حبر SPARK متغير اللون", "descriptionEn": "Kaaba emblem shifts dynamically.", "descriptionAr": "يتبدل لونه بين الذهبي والأزرق عند الإمالة.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Top-Right Serial", "labelAr": "الرقم العلوي", "x": 0.68, "y": 0.14, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Bottom-Left Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.24, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Zone", "labelAr": "العلامة المائية", "x": 0.06, "y": 0.20, "w": 0.22, "h": 0.48, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "3D Security Thread", "labelAr": "خيط الأمان", "x": 0.52, "y": 0.04, "w": 0.08, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "King Abdulaziz Portrait", "labelAr": "صورة الملك عبدالعزيز", "x": 0.62, "y": 0.18, "w": 0.28, "h": 0.62, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "SAR_HISTORICAL_1_5",
+      "currency": "SAR",
+      "denominationValue": 1,
+      "denominationLabelEn": "1 Riyal (Issues 1–5 Historical)",
+      "denominationLabelAr": "1 ريال (الإصدارات التاريخية 1–5)",
+      "familyId": "SAR_HISTORICAL",
+      "familyNameEn": "Historical Issues 1st–5th (1961–2007)",
+      "familyNameAr": "الإصدارات التاريخية 1–5 (1961–2007)",
+      "issueYear": "1961–2007",
+      "designYear": "1961–2007",
+      "printYearRange": "1961–2016",
+      "signatureYears": "Historical SAMA Governors",
+      "material": "COTTON_LINEN",
+      "widthMm": 133.0,
+      "heightMm": 63.0,
+      "dominantHueMin": 80.0,
+      "dominantHueMax": 165.0,
+      "serialRuleType": "SAR_DOCUMENTED",
+      "serialFormatHint": "Legacy 1 SAR banknote preserved for historical identification",
+      "sourceCitation": "SAMA Historical Archive",
+      "verificationStatus": "HISTORICAL_ARCHIVE",
+      "provenance": {
+        "source": "SAMA Historical Archive",
+        "tier": "RESEARCH_REFERENCE",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Preserved historical archive specifications.",
+        "confidenceNoteAr": "مرجع تاريخي موثق للإصدارات السابقة."
+      },
+      "changelogNote": "Retained so older SAR banknotes are not misclassified.",
+      "securityFeatures": [
+        {"id": "wm_hist", "nameEn": "Historical Royal / Emblem Watermark", "nameAr": "العلامة المائية التاريخية", "descriptionEn": "Watermark varies across issues 1–5.", "descriptionAr": "تختلف حسب رقم الإصدار.", "opticalCameraInspectable": false, "provenanceTier": "RESEARCH_REFERENCE"}
+      ],
+      "roiZones": [
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Upper Serial", "labelAr": "الرقم العلوي", "x": 0.66, "y": 0.14, "w": 0.25, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Lower Serial", "labelAr": "الرقم السفلي", "x": 0.08, "y": 0.72, "w": 0.25, "h": 0.14, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_1_LEGACY",
+      "currency": "USD",
+      "denominationValue": 1,
+      "denominationLabelEn": "$1 Federal Reserve Note",
+      "denominationLabelAr": "1 دولار أمريكي",
+      "familyId": "PRE_1996_CLASSIC",
+      "familyNameEn": "Classic Small-Size & Legacy 10-Char Serial",
+      "familyNameAr": "التصميم الكلاسيكي الصغير وبنية 10 خانات",
+      "issueYear": "1963–2025",
+      "designYear": "1963",
+      "printYearRange": "1963–2025",
+      "signatureYears": "Series 1963–2025",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 80.0,
+      "dominantHueMax": 155.0,
+      "serialRuleType": "USD_LEGACY_10",
+      "serialFormatHint": "[Bank A-L][8 Digits][Suffix/★] (10 chars independent rule)",
+      "sourceCitation": "BEP & U.S. Currency Education Program",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Bureau of Engraving and Printing (BEP)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official BEP dimensions and 10-char serial rules.",
+        "confidenceNoteAr": "أبعاد وقواعد 10 خانات موثقة رسمياً من مكتب النقش والطباعة."
+      },
+      "changelogNote": "Independent 10-char parser; never treated as shortened $5-$100.",
+      "securityFeatures": [
+        {"id": "seal_1", "nameEn": "Federal Reserve District Seal", "nameAr": "ختم بنك الاحتياطي الفيدرالي", "descriptionEn": "Left seal letter matches 1st serial letter.", "descriptionAr": "يطابق الحرف الأول من الرقم التسلسلي.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "fibers_1", "nameEn": "Red & Blue Cotton/Linen Fibers", "nameAr": "الألياف الحمراء والزرقاء", "descriptionEn": "Embedded micro-fibers (beyond standard phone resolution).", "descriptionAr": "ألياف دقيقة تتطلب تكبيراً مجهرياً.", "opticalCameraInspectable": false, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_seal", "category": "SEAL", "labelEn": "Federal Reserve Seal", "labelAr": "ختم الاحتياطي", "x": 0.14, "y": 0.34, "w": 0.14, "h": 0.28, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.64, "w": 0.26, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.20, "w": 0.26, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "treasury_seal", "category": "SEAL", "labelEn": "Treasury Seal", "labelAr": "ختم الخزانة", "x": 0.68, "y": 0.38, "w": 0.14, "h": 0.26, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Washington Portrait", "labelAr": "صورة واشنطن", "x": 0.38, "y": 0.16, "w": 0.24, "h": 0.68, "side": "FRONT", "required": true},
+        {"id": "denom_1", "category": "DENOMINATION", "labelEn": "Corner Numerals", "labelAr": "أرقام الفئة", "x": 0.04, "y": 0.06, "w": 0.12, "h": 0.18, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_2_LEGACY",
+      "currency": "USD",
+      "denominationValue": 2,
+      "denominationLabelEn": "$2 Federal Reserve Note",
+      "denominationLabelAr": "2 دولار أمريكي",
+      "familyId": "PRE_1996_CLASSIC",
+      "familyNameEn": "Classic Small-Size & Legacy 10-Char Serial",
+      "familyNameAr": "التصميم الكلاسيكي وبنية 10 خانات",
+      "issueYear": "1976–2017A",
+      "designYear": "1976",
+      "printYearRange": "1976–Present",
+      "signatureYears": "Series 1976–2017A",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 80.0,
+      "dominantHueMax": 155.0,
+      "serialRuleType": "USD_LEGACY_10",
+      "serialFormatHint": "[Bank A-L][8 Digits][Suffix/★] (10 chars)",
+      "sourceCitation": "BEP & U.S. Currency Education Program",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Bureau of Engraving and Printing (BEP)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Official BEP 10-char serial specifications.",
+        "confidenceNoteAr": "مواصفات رسمية لفئة 2 دولار."
+      },
+      "changelogNote": "Jefferson front; independent 10-char rule.",
+      "securityFeatures": [
+        {"id": "seal_2", "nameEn": "Federal Reserve Seal", "nameAr": "ختم الاحتياطي", "descriptionEn": "Matches 1st serial letter.", "descriptionAr": "يطابق الحرف الأول للرقم التسلسلي.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_seal", "category": "SEAL", "labelEn": "Federal Reserve Seal", "labelAr": "ختم الاحتياطي", "x": 0.14, "y": 0.34, "w": 0.14, "h": 0.28, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.64, "w": 0.26, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.20, "w": 0.26, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Jefferson Portrait", "labelAr": "صورة جيفرسون", "x": 0.38, "y": 0.16, "w": 0.24, "h": 0.68, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_5_MODERN",
+      "currency": "USD",
+      "denominationValue": 5,
+      "denominationLabelEn": "$5 Modern Security Series",
+      "denominationLabelAr": "5 دولارات (السلسلة الحديثة)",
+      "familyId": "MODERN_COLORIZED_2004_PLUS",
+      "familyNameEn": "Modern Colorized Security Series (2006–2025+)",
+      "familyNameAr": "السلسلة الأمنية الملونة الحديثة",
+      "issueYear": "2008–2025",
+      "designYear": "2006",
+      "printYearRange": "2008–2025",
+      "signatureYears": "Series 2006–2025",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 250.0,
+      "dominantHueMax": 325.0,
+      "serialRuleType": "USD_MODERN_11",
+      "serialFormatHint": "[Series A-R][Bank A-L][8 Digits][Suffix/★] (11 chars)",
+      "sourceCitation": "U.S. Currency Education Program & BEP",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "U.S. Currency Education Program",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Purple-gray tint, dual '5' watermarks, UV blue thread.",
+        "confidenceNoteAr": "تدرج بنفسجي، علامتان مائيتان للرقم 5، وخيط أمان."
+      },
+      "changelogNote": "Series 2006–2025 $5 FRN.",
+      "securityFeatures": [
+        {"id": "wm_5_num", "nameEn": "Dual '5' Watermarks", "nameAr": "علامتان مائيتان للرقم 5", "descriptionEn": "Backlit watermark columns.", "descriptionAr": "تظهر بالإضاءة الخلفية.", "opticalCameraInspectable": false, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "fr_5", "nameEn": "Federal Reserve Indicator (A1–L12)", "nameAr": "مؤشر الاحتياطي الفيدرالي", "descriptionEn": "Matches 2nd serial character.", "descriptionAr": "يطابق الحرف الثاني من الرقم.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_ind", "category": "SEAL", "labelEn": "FR Indicator", "labelAr": "مؤشر الاحتياطي", "x": 0.14, "y": 0.42, "w": 0.10, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Right Watermark '5'", "labelAr": "العلامة المائية 5", "x": 0.72, "y": 0.34, "w": 0.18, "h": 0.38, "side": "FRONT", "required": true},
+        {"id": "sec_thread", "category": "SECURITY_THREAD", "labelEn": "Security Thread", "labelAr": "خيط الأمان", "x": 0.63, "y": 0.04, "w": 0.06, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Lincoln Portrait", "labelAr": "صورة لنكولن", "x": 0.36, "y": 0.16, "w": 0.25, "h": 0.66, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_10_MODERN",
+      "currency": "USD",
+      "denominationValue": 10,
+      "denominationLabelEn": "$10 Modern Security Series",
+      "denominationLabelAr": "10 دولارات (السلسلة الحديثة)",
+      "familyId": "MODERN_COLORIZED_2004_PLUS",
+      "familyNameEn": "Modern Colorized Security Series (2004A–2025+)",
+      "familyNameAr": "السلسلة الأمنية الملونة الحديثة",
+      "issueYear": "2006–2025",
+      "designYear": "2004A",
+      "printYearRange": "2006–2025",
+      "signatureYears": "Series 2004A–2025",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 18.0,
+      "dominantHueMax": 52.0,
+      "serialRuleType": "USD_MODERN_11",
+      "serialFormatHint": "[Series A-R][Bank A-L][8 Digits][Suffix/★] (11 chars)",
+      "sourceCitation": "U.S. Currency Education Program & BEP",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "U.S. Currency Education Program",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Copper-to-green 10 OVI, Hamilton watermark.",
+        "confidenceNoteAr": "رقم 10 متغير اللون وعلامة هاملتون المائية."
+      },
+      "changelogNote": "Series 2004A–2025 $10 FRN.",
+      "securityFeatures": [
+        {"id": "ovi_10", "nameEn": "Color-Shifting '10'", "nameAr": "رقم 10 متغير اللون", "descriptionEn": "Copper to green tilt shift.", "descriptionAr": "يتبدل من النحاسي للأخضر.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_ind", "category": "SEAL", "labelEn": "FR Indicator", "labelAr": "مؤشر الاحتياطي", "x": 0.14, "y": 0.42, "w": 0.10, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "ovi_corner", "category": "DENOMINATION", "labelEn": "Shifting 10", "labelAr": "الرقم المتغير 10", "x": 0.78, "y": 0.72, "w": 0.14, "h": 0.18, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Hamilton Portrait", "labelAr": "صورة هاملتون", "x": 0.36, "y": 0.16, "w": 0.25, "h": 0.66, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_20_MODERN",
+      "currency": "USD",
+      "denominationValue": 20,
+      "denominationLabelEn": "$20 Modern Security Series",
+      "denominationLabelAr": "20 دولاراً (السلسلة الحديثة)",
+      "familyId": "MODERN_COLORIZED_2004_PLUS",
+      "familyNameEn": "Modern Colorized Security Series (2004–2025+)",
+      "familyNameAr": "السلسلة الأمنية الملونة الحديثة",
+      "issueYear": "2003–2025",
+      "designYear": "2004",
+      "printYearRange": "2003–2025",
+      "signatureYears": "Series 2004–2025",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 75.0,
+      "dominantHueMax": 150.0,
+      "serialRuleType": "USD_MODERN_11",
+      "serialFormatHint": "[Series A-R][Bank A-L][8 Digits][Suffix/★] (11 chars)",
+      "sourceCitation": "U.S. Currency Education Program & BEP",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "U.S. Currency Education Program",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Green/peach palette, copper-to-green 20 OVI.",
+        "confidenceNoteAr": "رقم 20 متغير اللون وخيط أمان أخضر."
+      },
+      "changelogNote": "Series 2004–2025 $20 FRN.",
+      "securityFeatures": [
+        {"id": "ovi_20", "nameEn": "Color-Shifting '20'", "nameAr": "رقم 20 متغير اللون", "descriptionEn": "Copper to green shift.", "descriptionAr": "يتبدل من النحاسي للأخضر.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_ind", "category": "SEAL", "labelEn": "FR Indicator", "labelAr": "مؤشر الاحتياطي", "x": 0.14, "y": 0.42, "w": 0.10, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "ovi_corner", "category": "DENOMINATION", "labelEn": "Shifting 20", "labelAr": "الرقم المتغير 20", "x": 0.78, "y": 0.72, "w": 0.14, "h": 0.18, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Jackson Portrait", "labelAr": "صورة جاكسون", "x": 0.36, "y": 0.16, "w": 0.25, "h": 0.66, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_50_MODERN",
+      "currency": "USD",
+      "denominationValue": 50,
+      "denominationLabelEn": "$50 Modern Security Series",
+      "denominationLabelAr": "50 دولاراً (السلسلة الحديثة)",
+      "familyId": "MODERN_COLORIZED_2004_PLUS",
+      "familyNameEn": "Modern Colorized Security Series (2004–2021+)",
+      "familyNameAr": "السلسلة الأمنية الملونة الحديثة",
+      "issueYear": "2004–2021",
+      "designYear": "2004",
+      "printYearRange": "2004–Present",
+      "signatureYears": "Series 2004–2021",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 200.0,
+      "dominantHueMax": 355.0,
+      "serialRuleType": "USD_MODERN_11",
+      "serialFormatHint": "[Series A-Q][Bank A-L][8 Digits][Suffix/★] (11 chars)",
+      "sourceCitation": "U.S. Currency Education Program & BEP",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "U.S. Currency Education Program",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Pink/blue tint, copper-to-green 50 OVI.",
+        "confidenceNoteAr": "رقم 50 متغير اللون وخيط أمان أصفر."
+      },
+      "changelogNote": "Series 2004–2021 $50 FRN.",
+      "securityFeatures": [
+        {"id": "ovi_50", "nameEn": "Color-Shifting '50'", "nameAr": "رقم 50 متغير اللون", "descriptionEn": "Copper to green shift.", "descriptionAr": "يتبدل من النحاسي للأخضر.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_ind", "category": "SEAL", "labelEn": "FR Indicator", "labelAr": "مؤشر الاحتياطي", "x": 0.14, "y": 0.42, "w": 0.10, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "ovi_corner", "category": "DENOMINATION", "labelEn": "Shifting 50", "labelAr": "الرقم المتغير 50", "x": 0.78, "y": 0.72, "w": 0.14, "h": 0.18, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Grant Portrait", "labelAr": "صورة غرانت", "x": 0.36, "y": 0.16, "w": 0.25, "h": 0.66, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_100_MODERN",
+      "currency": "USD",
+      "denominationValue": 100,
+      "denominationLabelEn": "$100 Modern 3D Ribbon Series",
+      "denominationLabelAr": "100 دولار (الشريط الأزرق ثلاثي الأبعاد)",
+      "familyId": "MODERN_COLORIZED_2004_PLUS",
+      "familyNameEn": "Modern 3D Ribbon Series (2009A–2025+)",
+      "familyNameAr": "الإصدار الحديث ذو الشريط الأزرق ثلاثي الأبعاد",
+      "issueYear": "2013–2025",
+      "designYear": "2009A",
+      "printYearRange": "2013–2025",
+      "signatureYears": "Series 2009A–2025",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 165.0,
+      "dominantHueMax": 230.0,
+      "serialRuleType": "USD_MODERN_11",
+      "serialFormatHint": "[Series A-R][Bank A-L][8 Digits][Suffix/★] (11 chars)",
+      "sourceCitation": "U.S. Currency Education Program & BEP",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "U.S. Currency Education Program & BEP",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "3D Blue Ribbon, Bell in Inkwell OVI, Series R (2025) eligible.",
+        "confidenceNoteAr": "شريط أزرق ثلاثي الأبعاد، الجرس والمحبرة، ومؤهل لسلسلة R 2025."
+      },
+      "changelogNote": "2009A–2025 3D Ribbon $100 note.",
+      "securityFeatures": [
+        {"id": "ribbon_100", "nameEn": "3D Blue Security Ribbon", "nameAr": "الشريط الأزرق ثلاثي الأبعاد", "descriptionEn": "Bells & 100s shift when tilted.", "descriptionAr": "تتحرك الأجراس والأرقام 100 عند الإمالة.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "inkwell_100", "nameEn": "Bell in Inkwell (OVI)", "nameAr": "الجرس والمحبرة متغيرة اللون", "descriptionEn": "Copper to green shift.", "descriptionAr": "يتحول من النحاسي للأخضر.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"},
+        {"id": "wm_100", "nameEn": "Franklin Watermark", "nameAr": "العلامة المائية لفرانكلين", "descriptionEn": "Backlit portrait in right oval.", "descriptionAr": "تظهر بالإضاءة الخلفية يمين الصورة.", "opticalCameraInspectable": false, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_ind", "category": "SEAL", "labelEn": "FR Indicator", "labelAr": "مؤشر الاحتياطي", "x": 0.14, "y": 0.42, "w": 0.10, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "ribbon_3d", "category": "SECURITY_THREAD", "labelEn": "3D Blue Ribbon", "labelAr": "الشريط الأزرق ثلاثي الأبعاد", "x": 0.51, "y": 0.04, "w": 0.07, "h": 0.92, "side": "FRONT", "required": true},
+        {"id": "inkwell", "category": "DENOMINATION", "labelEn": "Bell in Inkwell & 100", "labelAr": "الجرس والمحبرة والرقم 100", "x": 0.61, "y": 0.52, "w": 0.28, "h": 0.36, "side": "FRONT", "required": true},
+        {"id": "watermark", "category": "WATERMARK", "labelEn": "Watermark Oval", "labelAr": "العلامة المائية", "x": 0.74, "y": 0.24, "w": 0.18, "h": 0.44, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Franklin Portrait", "labelAr": "صورة فرانكلين", "x": 0.28, "y": 0.14, "w": 0.23, "h": 0.70, "side": "FRONT", "required": true},
+        {"id": "micro_collar", "category": "MICROPRINT", "labelEn": "Collar Microprint", "labelAr": "النقوش الدقيقة", "x": 0.32, "y": 0.66, "w": 0.16, "h": 0.14, "side": "FRONT", "required": false}
+      ]
+    },
+    {
+      "id": "USD_100_1996_REDESIGN",
+      "currency": "USD",
+      "denominationValue": 100,
+      "denominationLabelEn": "$100 Big-Head Redesign (1996–2006A)",
+      "denominationLabelAr": "100 دولار (إصدار 1996–2006A)",
+      "familyId": "REDESIGNED_1996_2003",
+      "familyNameEn": "1996–2006A Big-Portrait Redesign",
+      "familyNameAr": "تصميم 1996–2006A ذو الصورة الكبيرة",
+      "issueYear": "1996–2006A",
+      "designYear": "1996",
+      "printYearRange": "1996–2013",
+      "signatureYears": "Series 1996–2006A",
+      "material": "COTTON_LINEN",
+      "widthMm": 156.0,
+      "heightMm": 66.3,
+      "dominantHueMin": 80.0,
+      "dominantHueMax": 155.0,
+      "serialRuleType": "USD_MODERN_11",
+      "serialFormatHint": "[Series A-K][Bank A-L][8 Digits][Suffix/★] (11 chars, NO blue ribbon)",
+      "sourceCitation": "BEP Archive & U.S. Currency Program",
+      "verificationStatus": "VERIFIED_OFFICIAL",
+      "provenance": {
+        "source": "Bureau of Engraving and Printing (BEP)",
+        "tier": "OFFICIALLY_DOCUMENTED",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Pre-2013 $100 lacking 3D blue ribbon.",
+        "confidenceNoteAr": "إصدار 1996–2006A بدون الشريط الأزرق ثلاثي الأبعاد."
+      },
+      "changelogNote": "Distinct from 2013 3D ribbon design.",
+      "securityFeatures": [
+        {"id": "ovi_96", "nameEn": "Green-to-Black '100'", "nameAr": "رقم 100 متغير", "descriptionEn": "Corner 100 shifts green to black.", "descriptionAr": "يتحول من الأخضر للأسود.", "opticalCameraInspectable": true, "provenanceTier": "OFFICIALLY_DOCUMENTED"}
+      ],
+      "roiZones": [
+        {"id": "fr_ind", "category": "SEAL", "labelEn": "FR Indicator", "labelAr": "مؤشر الاحتياطي", "x": 0.14, "y": 0.42, "w": 0.10, "h": 0.14, "side": "FRONT", "required": true},
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.22, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "portrait", "category": "PORTRAIT", "labelEn": "Franklin Portrait", "labelAr": "صورة فرانكلين", "x": 0.34, "y": 0.16, "w": 0.26, "h": 0.66, "side": "FRONT", "required": true}
+      ]
+    },
+    {
+      "id": "USD_HISTORICAL_LARGE_SILVER",
+      "currency": "USD",
+      "denominationValue": 1,
+      "denominationLabelEn": "Historical Large-Size & Silver Certificates",
+      "denominationLabelAr": "الإصدارات التاريخية وشهادات الفضة",
+      "familyId": "SILVER_CERTIFICATE",
+      "familyNameEn": "Historical Large-Size & Silver Certificates (1899–1957)",
+      "familyNameAr": "الورق التاريخي وشهادات الفضة (1899–1957)",
+      "issueYear": "1899–1957",
+      "designYear": "1928–1957",
+      "printYearRange": "1899–1963",
+      "signatureYears": "Historical Treasury Officials",
+      "material": "COTTON_LINEN",
+      "widthMm": 187.0,
+      "heightMm": 79.0,
+      "dominantHueMin": 80.0,
+      "dominantHueMax": 225.0,
+      "serialRuleType": "USD_LEGACY_10",
+      "serialFormatHint": "Blue/Red/Yellow seal historical notes",
+      "sourceCitation": "BEP Historical Archive",
+      "verificationStatus": "HISTORICAL_ARCHIVE",
+      "provenance": {
+        "source": "BEP Historical Archive & Numismatic Museum",
+        "tier": "RESEARCH_REFERENCE",
+        "lastReviewed": "2026-11-20",
+        "confidenceNoteEn": "Museum/archive reference for legacy large-size & silver certificates.",
+        "confidenceNoteAr": "مرجع أرشيفي متحفي للإصدارات التاريخية."
+      },
+      "changelogNote": "Includes Large-Size & Silver Certificates.",
+      "securityFeatures": [
+        {"id": "seal_blue", "nameEn": "Blue Treasury Seal", "nameAr": "ختم الخزانة الأزرق", "descriptionEn": "Blue seal and blue serial on Silver Certificates.", "descriptionAr": "ختم وأرقام زرقاء في شهادات الفضة.", "opticalCameraInspectable": true, "provenanceTier": "RESEARCH_REFERENCE"}
+      ],
+      "roiZones": [
+        {"id": "serial_bl", "category": "SERIAL", "labelEn": "Left Serial", "labelAr": "الرقم الأيسر", "x": 0.12, "y": 0.64, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true},
+        {"id": "serial_tr", "category": "SERIAL", "labelEn": "Right Serial", "labelAr": "الرقم الأيمن", "x": 0.64, "y": 0.20, "w": 0.24, "h": 0.12, "side": "FRONT", "required": true}
+      ]
+    }
+  ]
+}
