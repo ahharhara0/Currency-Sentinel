@@ -24,8 +24,13 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Accept Android SDK licenses
+        run: |
+          SDKMANAGER="${ANDROID_HOME:-/usr/local/lib/android/sdk}/cmdline-tools/latest/bin/sdkmanager"
+          if [ -x "$SDKMANAGER" ]; then
+            set +o pipefail
+            yes | "$SDKMANAGER" --licenses > /dev/null
+          fi
 
       - name: Prepare debug keystore
         run: |
